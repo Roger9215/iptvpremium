@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("imagens/avatar.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.85);
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: rgb(17, 224, 51);
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.info {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.carousel-section {
+  margin: 30px auto;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+
+.carousel {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.carousel img {
+  height: 250px;
+  width: auto;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.left-to-right {
+  animation: slideLTR 30s linear infinite;
+}
+
+.right-to-left {
+  animation: slideRTL 30s linear infinite;
+  top: 260px;
+}
+
+@keyframes slideLTR {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes slideRTL {
+  0% { right: -100%; }
+  100% { right: 100%; }
+}
+
+.trailers {
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.videos iframe {
+  margin: 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  font-size: 14px;
+}
+
+.logos-canais img {
+  width: 120px;
+  height: 60px;
+  object-fit: contain;
+  background-color: #000;
+  padding: 5px;
+  border-radius: 6px;
+  transition: transform 0.3s;
+  background-color: transparent; /* fundo removido */
+}
+/* Carrossel de Logos */
+.logos-carousel-section {
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 0;
+  margin: 30px auto;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.carousel-logos {
+  display: flex;
+  animation: logos-slide 25s linear infinite;
+  gap: 30px;
+}
+
+.carousel-logos img {
+  width: 120px;
+  height: 60px;
+  object-fit: contain;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+/* Animação de carrossel lateral */
+@keyframes logos-slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* Seção do carrossel de logos */
+.logos-carousel-section {
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(248, 242, 242, 0.7);
+  padding: 20px 0;
+  margin: 30px auto;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+/* Carrossel movendo da direita para a esquerda */
+.carousel-logos {
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+.right-to-left-logos {
+  animation: slideRTLLogos 25s linear infinite;
+}
+
+.carousel-logos img {
+  width: 120px;
+  height: 60px;
+  object-fit: contain;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+/* Animação direita -> esquerda */
+@keyframes slideRTLLogos {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.pagamento-info {
+  background-color: #222;
+  color: #00ff88;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+
+  margin-top: 10px;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+
+.whatsapp-button img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.3s;
+}
+
+.whatsapp-button:hover img {
+  transform: scale(1.1);
+}
+body {
+  position: relative;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  overflow-x: hidden;
+}
+
+.fundo-avatar {
+  background-image: url("imagens/avatar.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 1; /* total visibilidade */
+}
+
+/* camada semitransparente para leitura */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* ajuste aqui para mais ou menos escuro */
+  z-index: -1;
+}
+
+.audio-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: rgba(255,255,255,0.8);
+  font-size: 24px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px #000;
+}
+.audio-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background: rgba(255,255,255,0.8);
+  font-size: 24px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px #000;
+}
+
+/* Para dispositivos com largura até 768px (tablets, celulares maiores) */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    margin: 8px 5px;
+  }
+
+  /* Ajuste o carrossel das logos para rolar verticalmente ou com largura menor */
+  .carousel-logos {
+    gap: 15px;
+    overflow-x: auto;
+    animation: none; /* desativa animação para evitar bug no móvel */
+  }
+  .carousel-logos img {
+    width: 80px;
+    height: 40px;
+  }
+
+  /* Carrossel principal - as imagens devem diminuir */
+  .carousel img {
+    height: 120px;
+    margin-right: 8px;
+  }
+
+  /* Ajustar os iframes de vídeos para largura responsiva */
+  .videos iframe {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  /* Info section com padding menor e fonte menor */
+  .info {
+    padding: 20px 15px;
+    margin: 10px;
+  }
+
+  .info h2, .info h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Footer menor */
+  footer {
+    font-size: 12px;
+    padding: 15px 10px;
+  }
+
+  /* Botão WhatsApp menor e mais perto da borda */
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Para dispositivos muito pequenos (celulares até 400px) */
+@media (max-width: 400px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .carousel img {
+    height: 90px;
+  }
+
+  .carousel-logos img {
+    width: 60px;
+    height: 30px;
+  }
+}
