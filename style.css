@@ -1,203 +1,128 @@
+/*
+  Comentários de Otimização CSS:
+  - Regras duplicadas ou sobrepostas foram consolidadas.
+  - Estilos inline do HTML foram movidos para cá (para #avaliacao-compacta e #visitor-counter).
+  - Regras CSS não utilizadas no HTML fornecido foram comentadas ou removidas.
+  - Propriedades redundantes foram removidas.
+  - NOVAS ALTERAÇÕES: Carrossel de logos sem "vazio" e destaque de cartazes ao passar o mouse.
+  - ATUALIZAÇÃO: Carrossel de cartazes agora também é contínuo e o destaque traz para frente.
+  - ATUALIZAÇÃO FINAL: Campo de avaliação reduzido e posicionado no lado oposto do contador, ambos fixos na parte inferior.
+  - CORREÇÃO URGENTE: Z-index ajustado e tamanho do campo de avaliação otimizado.
+*/
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  overflow-x: hidden; /* Evita barra de rolagem horizontal */
+  padding-top: 100px; /* Espaço para o cabeçalho fixo */
+  position: relative; /* Necessário para o fundo e camada semi-transparente */
+}
+
+/* Fundo da página com imagem e camada semi-transparente */
+.fundo-avatar {
   background-image: url("imagens/avatar.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  color: white;
-  text-shadow: 1px 1px 2px black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Fica atrás de tudo */
+  opacity: 1;
 }
 
-header {
-  background-color: rgba(0, 0, 0, 0.85);
-  text-align: center;
-  padding: 20px;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Camada escura para melhor leitura */
+  z-index: -1; /* Fica entre o fundo e o conteúdo */
 }
 
-header h1 {
-  font-size: 2.5rem;
+/* Cabeçalho fixo com fundo transparente */
+.cabecalho-fixo2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  color: #770909; /* Cor do texto do cabeçalho (logo) */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
   margin: 0;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  background-color: rgb(17, 224, 51);
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-.info {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 30px;
-  margin: 20px;
-  border-radius: 10px;
-}
-
-.info ul {
+.header-right nav .nav-list {
   list-style: none;
-  padding-left: 0;
-}
-
-.carousel-section {
-  margin: 30px auto;
-  overflow: hidden;
-  position: relative;
-  height: 250px;
-}
-
-.carousel {
-  position: absolute;
-  white-space: nowrap;
-}
-
-.carousel img {
-  height: 250px;
-  width: auto;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.left-to-right {
-  animation: slideLTR 30s linear infinite;
-}
-
-.right-to-left {
-  animation: slideRTL 30s linear infinite;
-  top: 260px;
-}
-
-@keyframes slideLTR {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-@keyframes slideRTL {
-  0% { right: -100%; }
-  100% { right: 100%; }
-}
-
-.trailers {
-  text-align: center;
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.videos iframe {
-  margin: 10px;
-  border: 2px solid #fff;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: black;
-  font-size: 14px;
-}
-
-.logos-canais img {
-  width: 120px;
-  height: 60px;
-  object-fit: contain;
-  background-color: #000;
-  padding: 5px;
-  border-radius: 6px;
-  transition: transform 0.3s;
-  background-color: transparent; /* fundo removido */
-}
-/* Carrossel de Logos */
-.logos-carousel-section {
-  overflow: hidden;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px 0;
-  margin: 30px auto;
-  border-radius: 10px;
-  max-width: 100%;
-}
-
-.carousel-logos {
   display: flex;
-  animation: logos-slide 25s linear infinite;
-  gap: 30px;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
 }
 
-.carousel-logos img {
-  width: 120px;
-  height: 60px;
-  object-fit: contain;
-  background-color: transparent;
-  padding: 5px;
-  border-radius: 6px;
+.nav-list li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-/* Animação de carrossel lateral */
-@keyframes logos-slide {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-/* Seção do carrossel de logos */
-.logos-carousel-section {
-  overflow: hidden;
-  position: relative;
-  background-color: rgba(248, 242, 242, 0.7);
-  padding: 20px 0;
-  margin: 30px auto;
-  border-radius: 10px;
-  max-width: 100%;
+.nav-list li a:hover,
+.nav-list li a.active {
+  color: #00ffae;
 }
 
-/* Carrossel movendo da direita para a esquerda */
-.carousel-logos {
+.botoes-topo {
   display: flex;
-  gap: 30px;
-  position: relative;
-}
-
-.right-to-left-logos {
-  animation: slideRTLLogos 25s linear infinite;
-}
-
-.carousel-logos img {
-  width: 120px;
-  height: 60px;
-  object-fit: contain;
-  background-color: transparent;
-  padding: 5px;
-  border-radius: 6px;
-}
-
-/* Animação direita -> esquerda */
-@keyframes slideRTLLogos {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-.pagamento-info {
-  background-color: #222;
-  color: #00ff88;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 8px;
-
+  gap: 10px;
   margin-top: 10px;
 }
+
+.botao {
+  background-color: #006400; /* verde escuro */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.botao:hover {
+  background-color: #00cc66; /* verde claro no hover */
+}
+
+.botao.destaque {
+  background-color: #00cc66;
+}
+
+.botao.destaque:hover {
+  background-color: #00ffae;
+}
+
+/* Botão flutuante do WhatsApp */
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 1000; /* Mantido em 1000 */
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -214,141 +139,281 @@ footer {
 .whatsapp-button:hover img {
   transform: scale(1.1);
 }
-body {
+
+/* Seção de informações (Teste Grátis) */
+.info {
+  padding: 30px 0; /* Largura */
+  margin: 10px auto; /* Centraliza e ajusta margem vertical */
+  border-radius: 50px; /* Arredonda as pontas */
+  max-width: 30%; /* Tamanho do comprimento */
+  text-align: center; /* Centraliza texto */
+  background-color: rgba(231, 5, 5, 0); /* Fundo transparente */
+  overflow: hidden; /* Garante que o conteúdo não vaze */
   position: relative;
-  margin: 0;
-  font-family: Arial, sans-serif;
+}
+
+.info ul { /* Não usado no HTML atual, mas mantido caso adicione listas */
+  list-style: none;
+  padding-left: 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: rgb(17, 224, 51);
   color: white;
-  text-shadow: 1px 1px 2px black;
-  overflow-x: hidden;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
-.fundo-avatar {
-  background-image: url("imagens/avatar.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  opacity: 1; /* total visibilidade */
+/* Carrossel de Logos (canais) */
+.logos-carousel-section {
+  overflow: hidden;
+  position: relative;
+  background-color: transparent; /* Fundo transparente */
+  padding: 0px 0;
+  margin: 10px auto;
+  border-radius: 10px;
+  max-width: 100%;
 }
 
-/* camada semitransparente para leitura */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* ajuste aqui para mais ou menos escuro */
-  z-index: -1;
+.carousel-logos {
+  display: flex;
+  gap: 30px;
+  position: relative;
+  animation: logos-slide 25s linear infinite; /* Animação principal */
+  width: max-content; /* Garante que o flexbox ocupe todo o espaço necessário */
 }
 
-.audio-btn {
+.carousel-logos img {
+  width: 120px;
+  height: 60px;
+  object-fit: contain;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 6px;
+  flex-shrink: 0; /* Impede que as imagens encolham */
+}
+
+/* A animação agora move o dobro da largura do conteúdo original para um loop perfeito */
+@keyframes logos-slide {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* Move 50% da largura total (conteúdo duplicado) */
+}
+
+/* Carrossel de Cartazes (filmes) - ATUALIZADO PARA LOOP CONTÍNUO E DESTAQUE */
+.carousel-section {
+  margin: 30px auto;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+
+.carousel {
+  display: flex; /* Transforma em flex container */
+  width: max-content; /* Garante que o container se expanda para todo o conteúdo */
+  position: relative; /* Necessário para o z-index dos filhos */
+  animation: slideLTR 30s linear infinite; /* Animação principal */
+}
+
+.carousel img {
+  height: 250px;
+  width: auto;
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform 0.3s ease, border 0.3s ease, z-index 0s; /* Transição suave */
+  border: 2px solid transparent; /* Borda transparente por padrão */
+  flex-shrink: 0; /* Impede que as imagens encolham */
+}
+
+.carousel img:hover {
+  transform: scale(1.05); /* Leve aumento no tamanho */
+  border: 2px solid #00ffae; /* Borda verde de destaque */
+  z-index: 10; /* Traz a imagem para frente */
+}
+
+/* A animação agora move o dobro da largura do conteúdo original para um loop perfeito */
+@keyframes slideLTR {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); } /* Move 50% da largura total (conteúdo duplicado) */
+}
+
+/* Seção de Trailers */
+.trailers {
+  text-align: center;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.0); /* Fundo transparente */
+}
+
+.videos iframe {
+  margin: 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+}
+
+/* Rodapé */
+footer { /* Alterado de .rodape para footer para ser mais específico */
+  text-align: center;
+  color: #fff;
+  margin-top: 40px;
+  border-top: 1px solid #444;
+  background-color: transparent;
+  padding: 0px 0;
+}
+
+.redes-sociais {
+  margin-top: 10px;
+}
+
+.logo-social {
+  width: 32px;
+  height: 32px;
+  margin: 0 10px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.logo-social:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para a avaliação compacta (movidos do HTML inline) - CORRIGIDO */
+#avaliacao-compacta {
   position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background: rgba(255,255,255,0.8);
-  font-size: 24px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: none;
+  bottom: 10px; /* Alinhado com o contador */
+  right: 10px; /* Lado oposto do contador */
+  background-color: black;
+  color: #FFD700;
+  font-family: 'Courier New', monospace;
+  font-size: 18px; /* Mesmo tamanho da fonte do contador */
+  padding: 10px 15px; /* Mesmo padding do contador */
+  border-radius: 5px;
+  box-shadow: 0 0 10px #FFD700;
+  z-index: 1001; /* MAIOR que o WhatsApp para ficar na frente */
+  display: flex; /* Para controlar o layout interno */
+  flex-direction: column; /* Itens em coluna */
+  align-items: center; /* Centraliza itens horizontalmente */
+  justify-content: center; /* Centraliza itens verticalmente */
+  /* max-width: 150px; /* Opcional: para limitar a largura se necessário */
+}
+
+#avaliacao-compacta .estrela {
   cursor: pointer;
-  box-shadow: 0 0 10px #000;
-}
-.audio-btn {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background: rgba(255,255,255,0.8);
-  font-size: 24px;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 0 10px #000;
+  color: gray; /* Cor inicial das estrelas */
+  transition: color 0.3s;
+  font-size: 24px; /* Estrelas menores para reduzir o tamanho geral */
+  line-height: 1; /* Ajusta a altura da linha para as estrelas */
 }
 
-/* Para dispositivos com largura até 768px (tablets, celulares maiores) */
+#barra-avaliacao {
+  width: 0%;
+  height: 6px;
+  background-color: yellow;
+  margin-top: 5px;
+  border-radius: 3px;
+  transition: width 0.4s;
+}
+
+#status-avaliacao {
+  font-size: 10px; /* Texto de status ainda menor */
+  margin-top: 4px;
+}
+
+/* Estilos para o contador de visitas (movidos do HTML inline) - CORRIGIDO Z-INDEX */
+#visitor-counter {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: black;
+  color: #00FF00;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #00FF00;
+  z-index: 1001; /* MAIOR que o WhatsApp para ficar na frente */
+}
+
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8rem;
+  .cabecalho-fixo2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .nav-list {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .botoes-topo {
+    margin-top: 10px;
   }
 
-  header p {
-    font-size: 1rem;
+  .info {
+    max-width: 90%; /* Aumenta a largura em telas menores */
+    padding: 20px 15px;
+    margin: 10px auto;
   }
 
-  .btn {
-    padding: 10px 15px;
-    font-size: 1rem;
-    margin: 8px 5px;
-  }
-
-  /* Ajuste o carrossel das logos para rolar verticalmente ou com largura menor */
   .carousel-logos {
     gap: 15px;
-    overflow-x: auto;
-    animation: none; /* desativa animação para evitar bug no móvel */
+    overflow-x: auto; /* Permite rolagem horizontal se a animação for desativada */
+    animation: none; /* Desativa animação para evitar bugs em dispositivos móveis */
   }
   .carousel-logos img {
     width: 80px;
     height: 40px;
   }
 
-  /* Carrossel principal - as imagens devem diminuir */
   .carousel img {
     height: 120px;
     margin-right: 8px;
   }
 
-  /* Ajustar os iframes de vídeos para largura responsiva */
   .videos iframe {
     width: 100%;
     height: auto;
     max-height: 200px;
   }
 
-  /* Info section com padding menor e fonte menor */
-  .info {
-    padding: 20px 15px;
-    margin: 10px;
-  }
-
-  .info h2, .info h3 {
-    font-size: 1.2rem;
-  }
-
-  /* Footer menor */
   footer {
     font-size: 12px;
     padding: 15px 10px;
   }
 
-  /* Botão WhatsApp menor e mais perto da borda */
   .whatsapp-button {
     width: 50px;
     height: 50px;
     bottom: 15px;
     right: 15px;
   }
+
+  /* Ajuste para avaliação e contador em telas menores */
+  #avaliacao-compacta,
+  #visitor-counter {
+    font-size: 14px; /* Reduz a fonte para telas menores */
+    padding: 8px 10px; /* Reduz o padding */
+    bottom: 5px; /* Mais próximo da borda */
+  }
+  #avaliacao-compacta {
+    
+    left: 5px;
+    /*right: 5px;*/
+  }
+  #visitor-counter {
+    left: 5px;
+  }
 }
 
-/* Para dispositivos muito pequenos (celulares até 400px) */
 @media (max-width: 400px) {
-  header h1 {
+  .logo {
     font-size: 1.5rem;
-  }
-
-  header p {
-    font-size: 0.9rem;
   }
 
   .btn {
