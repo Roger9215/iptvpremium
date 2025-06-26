@@ -1,433 +1,83 @@
 /*
-  Comentários de Otimização CSS:
-  - Regras duplicadas ou sobrepostas foram consolidadas.
-  - Estilos inline do HTML foram movidos para cá (para #avaliacao-compacta e #visitor-counter).
-  - Regras CSS não utilizadas no HTML fornecido foram comentadas ou removidas.
-  - Propriedades redundantes foram removidas.
-  - NOVAS ALTERAÇÕES: Carrossel de logos sem "vazio" e destaque de cartazes ao passar o mouse.
-  - ATUALIZAÇÃO: Carrossel de cartazes agora também é contínuo e o destaque traz para frente.
-  - ATUALIZAÇÃO FINAL: Campo de avaliação reduzido e posicionado no lado oposto do contador, ambos fixos na parte inferior.
-  - CORREÇÃO URGENTE: Z-index ajustado e tamanho do campo de avaliação otimizado.
+  Comentários de Otimização JavaScript:
+  - Código duplicado para o botão de áudio foi removido.
+  - O código do botão de áudio foi comentado, pois não há um elemento de áudio ou botão correspondente no HTML fornecido.
+  - O script de avaliação de estrelas, que estava inline no HTML, foi movido para cá.
 */
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  overflow-x: hidden; /* Evita barra de rolagem horizontal */
-  padding-top: 100px; /* Espaço para o cabeçalho fixo */
-  position: relative; /* Necessário para o fundo e camada semi-transparente */
-}
+console.log("Site IPTV carregado com sucesso.");
 
-/* Fundo da página com imagem e camada semi-transparente */
-.fundo-avatar {
-  background-image: url("imagens/avatar.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2; /* Fica atrás de tudo */
-  opacity: 1;
-}
+// Código para o botão de áudio (comentado, pois não há elementos correspondentes no HTML fornecido)
+/*
+const audio = document.getElementById("audio-heist");
+const btn = document.getElementById("btn-play-audio");
+let tocando = false;
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Camada escura para melhor leitura */
-  z-index: -1; /* Fica entre o fundo e o conteúdo */
+if (btn && audio) { // Verifica se os elementos existem antes de adicionar o listener
+  btn.addEventListener("click", () => {
+    if (!tocando) {
+      audio.play();
+      tocando = true;
+      btn.textContent = "🔇";
+    } else {
+      audio.pause();
+      tocando = false;
+      btn.textContent = "🔊";
+    }
+  });
+} else {
+  console.warn("Elementos de áudio ou botão de áudio não encontrados no HTML.");
 }
+*/
 
-/* Cabeçalho fixo com fundo transparente */
-.cabecalho-fixo2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: transparent;
-  color: #f3eeeee8; /* Cor do texto do cabeçalho (logo) */
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.header-right nav .nav-list {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-list li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-list li a:hover,
-.nav-list li a.active {
-  color: #00ffae;
-}
-
-.botoes-topo {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.botao {
-  background-color: #006400; /* verde escuro */
-  color: white;
-  padding: 6px 12px; /*largura*/
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: background-color 0.3s;
-}
-
-.botao:hover {
-  background-color: #00cc66; /* verde claro no hover */
-}
-
-.botao.destaque {
-  background-color: red;
-}
-
-.botao.destaque:hover {
-  background-color: #00ffae;
-}
-
-/* Botão flutuante do WhatsApp */
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000; /* Mantido em 1000 */
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-}
-
-.whatsapp-button img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #000;
-  transition: transform 0.3s;
-}
-
-.whatsapp-button:hover img {
-  transform: scale(1.1);
-}
-
-/* Seção de informações (Teste Grátis) */
-.info {
-  padding: 30px 0; /* Largura */
-  margin: 10px auto; /* Centraliza e ajusta margem vertical */
-  border-radius: 50px; /* Arredonda as pontas */
-  max-width: 30%; /* Tamanho do comprimento */
-  text-align: center; /* Centraliza texto */
-  background-color: rgba(231, 5, 5, 0); /* Fundo transparente */
-  overflow: hidden; /* Garante que o conteúdo não vaze */
-  position: relative;
-}
-
-.info ul { /* Não usado no HTML atual, mas mantido caso adicione listas */
-  list-style: none;
-  padding-left: 0;
-}
-
-/* botao no meio */
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  background-color: red;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-/* Carrossel de Logos (canais) */
-.logos-carousel-section {
-  overflow: hidden;
-  position: relative;
-  background-color: transparent; /* Fundo transparente */
-  padding: 0px 0;
-  margin: 10px auto;
-  border-radius: 10px;
-  max-width: 100%;
-}
-
-.carousel-logos {
-  display: flex;
-  gap: 30px;
-  position: relative;
-  animation: logos-slide 25s linear infinite; /* Animação principal */
-  width: max-content; /* Garante que o flexbox ocupe todo o espaço necessário */
-}
-
-.carousel-logos img {
-  width: 120px;
-  height: 60px;
-  object-fit: contain;
-  background-color: transparent;
-  padding: 5px;
-  border-radius: 6px;
-  flex-shrink: 0; /* Impede que as imagens encolham */
-}
-
-/* A animação agora move o dobro da largura do conteúdo original para um loop perfeito */
-@keyframes logos-slide {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); } /* Move 50% da largura total (conteúdo duplicado) */
-}
-
-/* Carrossel de Cartazes (filmes) - ATUALIZADO PARA LOOP CONTÍNUO E DESTAQUE */
-.carousel-section {
-  margin: 30px auto;
-  overflow: hidden;
-  position: relative;
-  height: 250px;
-}
-
-.carousel {
-  display: flex; /* Transforma em flex container */
-  width: max-content; /* Garante que o container se expanda para todo o conteúdo */
-  position: relative; /* Necessário para o z-index dos filhos */
-  animation: slideLTR 30s linear infinite; /* Animação principal */
-}
-
-.carousel img {
-  height: 250px;
-  width: auto;
-  display: inline-block;
-  margin-right: 10px;
-  transition: transform 0.3s ease, border 0.3s ease, z-index 0s; /* Transição suave */
-  border: 2px solid transparent; /* Borda transparente por padrão */
-  flex-shrink: 0; /* Impede que as imagens encolham */
-}
-
-.carousel img:hover {
-  transform: scale(1.05); /* Leve aumento no tamanho */
-  border: 2px solid #00ffae; /* Borda verde de destaque */
-  z-index: 10; /* Traz a imagem para frente */
-}
-
-/* A animação agora move o dobro da largura do conteúdo original para um loop perfeito */
-@keyframes slideLTR {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); } /* Move 50% da largura total (conteúdo duplicado) */
-}
-
-/* Seção de Trailers */
-.trailers {
-  text-align: center;
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.0); /* Fundo transparente */
-}
-
-.videos iframe {
-  margin: 10px;
-  border: 2px solid #fff;
-  border-radius: 8px;
-}
-
-/* Rodapé */
-footer { /* Alterado de .rodape para footer para ser mais específico */
-  text-align: center;
-  color: #fff;
-  margin-top: 40px;
-  border-top: 1px solid #444;
-  background-color: transparent;
-  padding: 0px 0;
-}
-
-.redes-sociais {
-  margin-top: 10px;
-}
-
-.logo-social {
-  width: 32px;
-  height: 32px;
-  margin: 0 10px;
-  vertical-align: middle;
-  transition: transform 0.3s ease;
-}
-
-.logo-social:hover {
-  transform: scale(1.1);
-}
-
-/* Estilos para a avaliação compacta (movidos do HTML inline) - CORRIGIDO */
-#avaliacao-compacta {
-  position: fixed;
-  bottom: 10px; /* Alinhado com o contador */
-  right: 10px; /* Lado oposto do contador */
-  background-color: black;
-  color: #FFD700;
-  font-family: 'Courier New', monospace;
-  font-size: 18px; /* Mesmo tamanho da fonte do contador */
-  padding: 10px 15px; /* Mesmo padding do contador */
-  border-radius: 5px;
-  box-shadow: 0 0 10px #FFD700;
-  z-index: 1001; /* MAIOR que o WhatsApp para ficar na frente */
-  display: flex; /* Para controlar o layout interno */
-  flex-direction: column; /* Itens em coluna */
-  align-items: center; /* Centraliza itens horizontalmente */
-  justify-content: center; /* Centraliza itens verticalmente */
-  /* max-width: 150px; /* Opcional: para limitar a largura se necessário */
-}
-
-#avaliacao-compacta .estrela {
-  cursor: pointer;
-  color: gray; /* Cor inicial das estrelas */
-  transition: color 0.3s;
-  font-size: 24px; /* Estrelas menores para reduzir o tamanho geral */
-  line-height: 1; /* Ajusta a altura da linha para as estrelas */
-}
-
-#barra-avaliacao {
-  width: 0%;
-  height: 6px;
-  background-color: yellow;
-  margin-top: 5px;
-  border-radius: 3px;
-  transition: width 0.4s;
-}
-
-#status-avaliacao {
-  font-size: 10px; /* Texto de status ainda menor */
-  margin-top: 4px;
-}
-
-/* Estilos para o contador de visitas (movidos do HTML inline) - CORRIGIDO Z-INDEX */
-#visitor-counter {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  background-color: black;
-  color: #00FF00;
-  font-family: 'Courier New', monospace;
-  font-size: 18px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #00FF00;
-  z-index: 1001; /* MAIOR que o WhatsApp para ficar na frente */
-}
-
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-  .cabecalho-fixo2 {
-    flex-direction: column;
-    align-items: flex-start;
+// Contador de visitantes usando localStorage
+document.addEventListener("DOMContentLoaded", function () {
+  let count = localStorage.getItem("visitCount");
+  // Converte para número e incrementa, ou inicia em 1 se for a primeira visita
+  count = count ? parseInt(count) + 1 : 1;
+  localStorage.setItem("visitCount", count);
+  
+  const visitCountElement = document.getElementById("visit-count");
+  if (visitCountElement) {
+    visitCountElement.textContent = count;
+  } else {
+    console.warn("Elemento 'visit-count' não encontrado no HTML.");
   }
-  .header-right {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-  }
-  .nav-list {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .botoes-topo {
-    margin-top: 10px;
-  }
+});
 
-  .info {
-    max-width: 90%; /* Aumenta a largura em telas menores */
-    padding: 20px 15px;
-    margin: 10px auto;
-  }
+// Lógica para o sistema de avaliação por estrelas
+document.addEventListener("DOMContentLoaded", function () {
+  const estrelas = document.querySelectorAll('#avaliacao-compacta .estrela');
+  const barra = document.getElementById('barra-avaliacao');
+  const status = document.getElementById('status-avaliacao');
 
-  .carousel-logos {
-    gap: 15px;
-    overflow-x: auto; /* Permite rolagem horizontal se a animação for desativada */
-    animation: none; /* Desativa animação para evitar bugs em dispositivos móveis */
-  }
-  .carousel-logos img {
-    width: 80px;
-    height: 40px;
-  }
+  if (estrelas.length > 0 && barra && status) { // Verifica se os elementos existem
+    estrelas.forEach(estrela => {
+      estrela.addEventListener('click', () => {
+        const valor = parseInt(estrela.getAttribute('data-value'));
 
-  .carousel img {
-    height: 120px;
-    margin-right: 8px;
-  }
+        // Limpa seleção
+        estrelas.forEach(e => e.style.color = 'gray');
+        // Aplica seleção
+        for (let i = 0; i < valor; i++) {
+          estrelas[i].style.color = '#FFD700'; // amarelo ouro
+        }
 
-  .videos iframe {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-  }
+        // Atualiza barra e status
+        const porcentagem = (valor / 5) * 100;
+        barra.style.width = porcentagem + "%";
 
-  footer {
-    font-size: 12px;
-    padding: 15px 10px;
-  }
+        let texto = '';
+        if (valor <= 1) texto = 'Ruim 😞';
+        else if (valor === 2) texto = 'Regular 😐';
+        else if (valor === 3) texto = 'Bom 🙂';
+        else if (valor === 4) texto = 'Ótimo 😃';
+        else texto = 'Excelente 🤩';
 
-  .whatsapp-button {
-    width: 50px;
-    height: 50px;
-    bottom: 15px;
-    right: 15px;
+        status.textContent = texto;
+      });
+    });
+  } else {
+    console.warn("Elementos de avaliação (estrelas, barra ou status) não encontrados no HTML.");
   }
-
-  /* Ajuste para avaliação e contador em telas menores */
-  #avaliacao-compacta,
-  #visitor-counter {
-    font-size: 14px; /* Reduz a fonte para telas menores */
-    padding: 8px 10px; /* Reduz o padding */
-    bottom: 5px; /* Mais próximo da borda */
-  }
-  #avaliacao-compacta {
-    
-    left: 5px;
-    /*right: 5px;*/
-  }
-  #visitor-counter {
-    left: 5px;
-  }
-}
-
-@media (max-width: 400px) {
-  .logo {
-    font-size: 1.5rem;
-  }
-
-  .btn {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-
-  .carousel img {
-    height: 90px;
-  }
-
-  .carousel-logos img {
-    width: 60px;
-    height: 30px;
-  }
-}
+});
