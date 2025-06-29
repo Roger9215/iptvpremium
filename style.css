@@ -431,3 +431,80 @@ footer { /* Alterado de .rodape para footer para ser mais específico */
     height: 30px;
   }
 }
+.titulo-planos {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #00ff80;
+}
+
+.container-planos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.planos {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 2px solid #00ff80;
+  border-radius: 15px;
+  padding: 25px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 255, 128, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.planos:hover {
+  transform: scale(1.03);
+}
+
+.planos h2 {
+  margin-bottom: 15px;
+  color: #00ff80;
+}
+
+.btn-teste,
+.btn-compre {
+  background-color: #00ff80;
+  color: #000;
+  border: none;
+  padding: 10px 18px;
+  margin: 8px 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-teste:hover,
+.btn-compre:hover {
+  background-color: #00cc66;
+}
+.botoes-topo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding-right: 20px; /* Reduzido para trazer o botão mais à esquerda */
+}
+
+.botao {
+  background-color: #00ff80;
+  color: #000;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.botao:hover {
+  background-color: #00cc66;
+}
