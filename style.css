@@ -1,15 +1,3 @@
-/*
-  Comentários de Otimização CSS:
-  - Regras duplicadas ou sobrepostas foram consolidadas.
-  - Estilos inline do HTML foram movidos para cá (para #avaliacao-compacta e #visitor-counter).
-  - Regras CSS não utilizadas no HTML fornecido foram comentadas ou removidas.
-  - Propriedades redundantes foram removidas.
-  - NOVAS ALTERAÇÕES: Carrossel de logos sem "vazio" e destaque de cartazes ao passar o mouse.
-  - ATUALIZAÇÃO: Carrossel de cartazes agora também é contínuo e o destaque traz para frente.
-  - ATUALIZAÇÃO FINAL: Campo de avaliação reduzido e posicionado no lado oposto do contador, ambos fixos na parte inferior.
-  - CORREÇÃO URGENTE: Z-index ajustado e tamanho do campo de avaliação otimizado.
-*/
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
