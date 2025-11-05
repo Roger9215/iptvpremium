@@ -1,0 +1,793 @@
+/* Arquivo: style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --cor-principal: #0d1117;
+    --cor-secundaria: #161b22;
+    --cor-texto: #e6edf3;
+    --cor-destaque: #007bff; /* Azul vibrante para botões */
+    --cor-overlay: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-principal);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Fundo da Página Inicial */
+.pagina-inicial {
+    background-image: url('img/avatar.jpg');
+}
+
+/* Fundo da Página da Loja */
+.pagina-loja {
+    background-image: url('caminho/para/sua-imagem-fundo-2.jpg');
+}
+
+/* Estrutura do Cabeçalho (Header) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--cor-overlay);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .logo img {
+    height: 150px; /* Ajuste o tamanho da sua logo aqui */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--cor-destaque);
+}
+
+/* Conteúdo Principal (Main Content) */
+.main-content {
+    min-height: 100vh;
+    padding-top: 80px; /* Espaço para o header fixo */
+}
+
+/* Seção Hero (Página Inicial) */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh - 80px); /* Ajusta a altura */
+    background: var(--cor-overlay);
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Carrossel de Filmes */
+.carrossel-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: var(--cor-secundaria);
+}
+
+.carrossel-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.carrossel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; /* **Mantém o overflow hidden para não aparecer a barra de rolagem** */
+}
+
+.carrossel-filmes {
+    display: flex;
+    white-space: nowrap;
+    /* A animação é aplicada diretamente aqui para o loop */
+    animation: scroll-filmes-infinito 50s linear infinite;
+}
+
+/* Pausa a animação ao passar o mouse */
+.carrossel-filmes:hover {
+    animation-play-state: paused;
+}
+
+.cartaz-filme {
+    /* Ajusta o tamanho e o espaçamento para a animação */
+    min-width: 200px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.cartaz-filme:hover {
+    transform: scale(1.05);
+}
+
+.cartaz-filme img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Removendo os botões de navegação, pois não são mais necessários */
+.nav-btn {
+    display: none;
+}
+
+/* Adicionando a animação de keyframes que estava faltando */
+@keyframes scroll-filmes-infinito {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%); /* Alterado para 100% para loop contínuo */
+    }
+}
+/* Estilos da Loja */
+.conteudo-loja {
+    padding: 2rem;
+    background: var(--cor-overlay);
+    min-height: calc(100vh - 80px);
+}
+/* Arquivo: style.css */
+
+/* --- Estilos para a Página de Planos --- */
+
+/* Fundo da Página de Planos */
+.pagina-planos {
+    background-image: url('img/avatar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.planos-header {
+    height: 40vh; /* Altura da seção de topo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--cor-overlay);
+    padding-top: 80px;
+}
+
+.planos-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.planos-header p {
+    font-size: 1.2rem;
+}
+
+/* Seção de Planos */
+.pricing-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.pricing-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.plan-card {
+    background-color: var(--cor-secundaria);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+}
+
+.plan-card h3 {
+    font-size: 1.8rem;
+    color: var(--cor-destaque);
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.price .currency {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
+.price .period {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.plan-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.plan-card li {
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.plan-card li i {
+    color: #4CAF50; /* Cor verde para os ícones */
+}
+
+.payment-info {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.fidelidade {
+    font-weight: 600;
+    color: #ffc107; /* Cor amarela para destaque */
+    margin-bottom: 2rem;
+}
+
+.plan-card .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    text-align: center;
+}
+
+.btn-teste {
+    background: transparent;
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-destaque);
+}
+
+.btn-teste:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto);
+}
+
+.btn-comprar {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-comprar:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Seção de Conteúdo Explicativo */
+.conteudo-explicativo {
+    padding: 3rem 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.explicativo-item {
+    background-color: var(--cor-secundaria);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 45%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.explicativo-item h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 1rem;
+}
+/* Arquivo: style.css */
+
+/* --- Estilos para a Página de Dúvidas Frequentes --- */
+
+/* Fundo da Página de Dúvidas */
+.pagina-duvidas {
+    background-image: url('caminho/para/sua-imagem-fundo-4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.faq-header {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--cor-overlay);
+    padding-top: 80px;
+}
+
+.faq-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.faq-header p {
+    font-size: 1.2rem;
+}
+
+.faq-section {
+    padding: 3rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--cor-secundaria);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+}
+
+.faq-item h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.faq-item p,
+.faq-item ul,
+.faq-item ol {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.faq-item ul,
+.faq-item ol {
+    padding-left: 20px;
+}
+
+.faq-item li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-item ul li i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.faq-item ol {
+    list-style-type: decimal;
+}
+
+.faq-item ol li {
+    list-style-position: inside;
+}
+
+/* --- Estilos para a Página Quem Somos --- */
+
+/* Fundo da Página Quem Somos */
+.pagina-quemsomos {
+    background-image: url('caminho/para/sua-imagem-fundo-5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-us-header {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--cor-overlay);
+    padding-top: 80px;
+}
+
+.about-us-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.about-us-section {
+    background-color: var(--cor-principal);
+    padding: 3rem 5%;
+    color: var(--cor-texto);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-us-text,
+.about-us-features,
+.about-us-compromisso {
+    margin-bottom: 2rem;
+    background-color: var(--cor-secundaria);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.about-us-text h2,
+.about-us-features h2,
+.about-us-compromisso h2 {
+    color: var(--cor-destaque);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-us-features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-us-features li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.about-us-features li i {
+    color: #4CAF50;
+    font-size: 1.5rem;
+}
+
+.call-to-action {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--cor-secundaria);
+    border-radius: 8px;
+}
+/* --- Estilos do Rodapé --- */
+footer {
+    background-color: var(--cor-secundaria);
+    color: #ccc;
+    padding: 3rem 5%;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1 1 200px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col h4 {
+    color: var(--cor-texto);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--cor-destaque);
+    margin-top: 0.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--cor-destaque);
+}
+
+.footer-col p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: var(--cor-destaque);
+}
+
+.payment-logos img {
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 1rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+}
+/* --- Estilos para o Carrossel de Apps --- */
+.app-carousel-section {
+    padding: 3rem 5%;
+    background-color: var(--cor-principal);
+    text-align: center;
+}
+
+.app-carousel-section h2 {
+    font-size: 2.5rem;
+    color: var(--cor-texto); /* Letras brancas */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.app-carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.app-logos-carousel {
+    display: flex;
+    animation: scroll-infinito 30s linear infinite; /* Animação de rolagem automática */
+}
+
+/* Pausa a animação quando o mouse passa por cima */
+.app-logos-carousel:hover {
+    animation-play-state: paused;
+}
+
+.app-logo {
+    min-width: 150px; /* Largura de cada logo */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0 15px;
+}
+
+.app-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%); /* Logos em preto e branco para um visual limpo */
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.app-logo img:hover {
+    filter: none; /* Retorna a cor ao passar o mouse */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.app-text {
+    max-width: 800px;
+    margin: 2rem auto;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.app-text p {
+    margin-bottom: 1rem;
+}
+
+/* Animação de rolagem infinita */
+@keyframes scroll-infinito {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+/* Fundo da Página Quem Somos */
+.pagina-quemsomos {
+    background-image: url('img/avatar.jpg');
+}
+
+/* Fundo da Página de Dúvidas */
+.pagina-duvidas {
+    background-image: url('img/avatar.jpg');
+}
+
+/* --- Estilos da Avaliação no Rodapé --- */
+.avaliacao-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.avaliacao-item {
+    cursor: pointer;
+    background-color: #2a2a2a;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.avaliacao-item:hover {
+    background-color: #3a3a3a;
+}
+
+/* Reduz o tamanho das estrelas no footer */
+.avaliacao-item .emoji {
+    font-size: 1.2rem; /* Tamanho reduzido */
+    line-height: 1;
+    margin-right: 8px;
+}
+
+/* --- Carrossel de Filmes --- */
+.carrossel-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: var(--cor-secundaria);
+}
+
+.carrossel-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.carrossel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; /* **Mantém o overflow hidden para não aparecer a barra de rolagem** */
+}
+
+.carrossel-filmes {
+    display: flex;
+    white-space: nowrap;
+    /* A animação é aplicada diretamente aqui para o loop */
+    animation: scroll-filmes-infinito 50s linear infinite;
+}
+
+/* Pausa a animação ao passar o mouse */
+.carrossel-filmes:hover {
+    animation-play-state: paused;
+}
+
+.cartaz-filme {
+    /* Ajusta o tamanho e o espaçamento para a animação */
+    min-width: 200px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.cartaz-filme:hover {
+    transform: scale(1.05);
+}
+
+.cartaz-filme img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Removendo os botões de navegação, pois não são mais necessários */
+.nav-btn {
+    display: none;
+}
+
+/* Adicionando a animação de keyframes que estava faltando */
+@keyframes scroll-filmes-infinito {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+@media (max-width: 768px) {
+    /* Estilos específicos para telas de até 768px */
+    header {
+        flex-direction: column; /* Empilha o logo e o menu */
+    }
+    nav ul {
+        flex-direction: column; /* Empilha os links */
+        text-align: center;
+    }
+    .produtos {
+        flex-direction: column; /* Empilha os produtos da loja */
+    }
+    /* Outros ajustes necessários */
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loja Afiliado Shopee</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+
+.logo-social {
+  width: 28px;
+  height: 28px;
+  margin-top: 10px;
+  transition: transform 0.2s;
+}
+
+.logo-social:hover {
+  transform: scale(1.1);
+}
+.redes-sociais {
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+    header {
+      background-color: #ee4d2d;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #ee4d2d;
+      padding-bottom: 5px;
+    }
+    .produtos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      justify-content: space-between;
+    }
+    .produto {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 10px;
+      width: calc(25% - 20px);
+      text-align: center;
+    }
+    .produto img {
+      max-width: 100%;
+      border-radius: 5px;
+      height: 180px;
+      object-fit: cover;
+    }
+    .produto h3 {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #333;
+    }
+    .produto a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #ee4d2d;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 40px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      .produto {
+        width: calc(50% - 20px);
+      }
+    }
+    @media (max-width: 480px) {
+      .produto {
+        width: 100%;
+      }
+    }
+
+
+}
+
+header .logo img {
+    height: 70px; /* Ajuste o tamanho da sua logo aqui */
+}
+
+
+/* --- Estilos do Cabeçalho para a página da loja --- */
+header {
+    background-color: #ee4d2d; /* Mantém a cor original */
+    color: white;
+    padding: 1rem 5%;
+    display: flex; /* Transforma o cabeçalho em um container flexível */
+    justify-content: space-between; /* Alinha os itens (logo e nav) nas extremidades */
+    align-items: center; /* Centraliza os itens verticalmente */
+}
+
+header .logo img {
+    height: 150px; /* Reduz o tamanho do logo */
+    width: auto;
+}
+
+/* Oculta os títulos que não pertencem ao novo cabeçalho */
+header h1, header p {
+    display: none;
+}
+}
+
+header h1, header p {
+    display: none; /* Oculta os títulos que estavam no cabeçalho original */
+}
+
+/* --- Estilos da Navegação --- */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Cor de destaque para o hover */
+}
+
+
+  </style>
+
+
+
+
+
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/iptv_premium_logo.webp" alt="Logo da sua empresa">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="quemsomos.html">Quem Somos</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="duvidas.html">Dúvidas Frequentes</a></li>
+            <li><a href="loja.html">Loja Afiliada</a></li>
+        </ul>
+    </nav>
+</header>
+
+  <div class="container">
+    <h2>✨ Produtos em destaque</h2>
+
+    <div class="produtos">
+      <!-- Linha 1 -->
+      <div class="produto">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m97zzy8gs16q2e.webp" alt="Escorredor">
+        <h3>Escorredor Retrátil - R$15,96</h3>
+        <a href="https://s.shopee.com.br/4VRxajlz8I" target="_blank">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://down-br.img.susercontent.com/file/sg-11134201-7reop-m8fh36l81zxye3.webp" alt="Chaleira">
+        <h3>Chaleira Inox - R$31,99</h3>
+        <a href="https://s.shopee.com.br/BIyR2mobP" target="_blank">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-maolnps78xyx82@resize_w450_nl.webp" alt="Dispenser">
+        <h3>Kit Dispenser Detergente - R$14,88</h3>
+        <a href="https://s.shopee.com.br/2LNT1ERLDA" target="_blank">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-loyvf2yzir3m79.webp" alt="Pano de prato">
+        <h3>Pano de Prato em Microfibra  R$4,98</h3>
+        <a href="https://s.shopee.com.br/2LNT5G97jt" target="_blank">Ver Produto</a>
+      </div>
+
+      <!-- Linha 2 - Espaço reservado -->
+      <div class="produto">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lxvdmkilhlzm4a.webp" alt="Kit Parafusadeira/Furadeira">
+        <h3>Kit Parafusadeira/Furadeira 48 Peças À Bateria Carregador Usb - R$ 44,10</h3>
+        <a href="https://s.shopee.com.br/9zmuaMB4ML" target="_blank">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-ln5id02zepyzfb@resize_w900_nl.webp" alt="Amolador De Facas">
+        <h3>Amolador De Facas Profissional - R$13,59</h3>
+        <a href="https://s.shopee.com.br/8fHX10xthj" target="_blank">Ver Produto</a>
+       </div>
+
+      
+      <!-- Linha 2 - Espaço reservado  
+       <div class="produto">
+        <img src="https://via.placeholder.com/200x180" alt="Produto futuro">
+        <h3>Produto Exemplo</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x180" alt="Produto futuro">
+        <h3>Produto Exemplo</h3>
+        <a href="#">Ver Produto</a>
+      </div> -->
+
+      <!--Linha 3 - Espaço reservado 
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x180" alt="Produto futuro">
+        <h3>Produto Exemplo</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x180" alt="Produto futuro">
+        <h3>Produto Exemplo</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x180" alt="Produto futuro">
+        <h3>Produto Exemplo</h3>
+        <a href="#">Ver Produto</a>
+      </div>
+      <div class="produto">
+        <img src="https://via.placeholder.com/200x180" alt="Produto futuro">
+        <h3>Produto Exemplo</h3>
+        <a href="#">Ver Produto</a>
+      </div>  -->
+    </div>
+  </div>
+
+  <footer>
+  <p>Criado por Rogério Reis - Afiliado Shopee © 2025</p>
+  <p>Email: rogerioferrreirauol@gmail.com</p>
+  <p>IPTV Premium – Todos os direitos reservados. Entretenimento com qualidade e liberdade.</p>
+  <div class="redes-sociais">
+    <a href="https://www.instagram.com/iptvpremium_hd" target="_blank" title="Siga no Instagram">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="logo-social">
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
