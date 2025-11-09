@@ -48,7 +48,7 @@ header {
 }
 
 header .logo img {
-    height: 50px; /* Ajuste o tamanho da sua logo aqui */
+    height: 100px; /* Ajuste o tamanho da sua logo aqui */
 }
 
 header nav ul {
@@ -791,4 +791,5 @@ footer {
     }
     /* Outros ajustes necessários */
 }
+
 
